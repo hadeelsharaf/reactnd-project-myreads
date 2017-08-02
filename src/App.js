@@ -25,6 +25,7 @@ class BooksApp extends React.Component {
           this.addBook(oldBook)
         }
 
+        oldBook.shelf = shelf
         this.setState((state) => ({
           books: oldBooks.map((book) => {
             if(book.id === oldBook.id)

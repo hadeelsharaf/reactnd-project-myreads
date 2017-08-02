@@ -11,8 +11,11 @@ class BookSearch extends Component {
 
   updateQuery = (query) => {
   	BooksAPI.search(query,50).then((results) =>{
-  		if (results)
-    		this.setState({ query: query.trim(),books:results })
+  		if (results){
+        if (this.state.books !== results) {
+    		      this.setState({ query: query.trim(),books:results })
+          }
+      }
     	else
     		this.setState({ query: query.trim(), books:[] })		
   		
@@ -41,8 +44,8 @@ class BookSearch extends Component {
             </div>
             <div className="search-books-results">
               <ol className="books-grid">
-	            { books.map((book) => (
-	              <li key={book.id}>
+	            { books.length >= 0 && books.map((book,idx) => (
+	              <li key={book.id+'-'+idx}>
 	            		<BookComponent book={book} bookHandlers={bookHandlers}
 	            		mood="adding"/>
 	              </li>
