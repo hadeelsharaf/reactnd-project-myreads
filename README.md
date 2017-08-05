@@ -1,8 +1,8 @@
 This is project used the starter template for the final assessment project for Udacity's React Fundamentals course, developed by [React Training](https://reacttraining.com). 
 
 ## Install and Run
-* npm install
-* npm start
+* Inatall : `npm install`
+* Run : `npm start`
 
 
 ## Backend Server

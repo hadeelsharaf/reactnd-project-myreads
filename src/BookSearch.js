@@ -13,6 +13,15 @@ class BookSearch extends Component {
   	BooksAPI.search(query,50).then((results) =>{
   		if (results){
         if (this.state.books !== results) {
+            let userBooks = this.props.userBooks
+            results.map(book => {
+              userBooks.map(userBook => {
+                if (userBook.id === book.id)
+                  book.shelf = userBook.shelf
+                return userBook
+              })
+              return book
+            })
     		      this.setState({ query: query.trim(),books:results })
           }
       }
